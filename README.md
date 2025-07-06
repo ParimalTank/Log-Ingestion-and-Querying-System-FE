@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# 📊 Log Ingestion & Querying System – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive frontend built with **React**, **Vite**, **TypeScript**, and **Material UI (MUI)** that enables users to query and visualize application logs efficiently. This UI allows dynamic filtering based on log levels, resource IDs, message contents, and timestamp ranges — similar to professional tools like **Datadog**, **Grafana Loki**, or **Splunk**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 **Dynamic Filtering**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  - Full-text search in message field
+  - Dropdown to filter by log level (`info`, `warn`, `error`)
+  - Text input for `resourceId`
+  - Date pickers for timestamp range filtering
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 📋 **Responsive Log List**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  - Visually distinguished log levels with color-coded cards
+  - Timestamp, traceId, commit, and metadata info displayed per log
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- ⚡ **Fast & Optimized**
+  - Built using **Vite** for blazing-fast dev environment
+  - Leveraging **MUI** components for accessibility and responsive design
+
+---
+
+## 🧱 Tech Stack
+
+| Tool                | Purpose                         |
+| ------------------- | ------------------------------- |
+| Vite                | React bundler & fast dev server |
+| React               | UI library                      |
+| TypeScript          | Static typing                   |
+| Material UI (MUI)   | Component library               |
+| Day.js              | Lightweight date handling       |
+| @mui/x-date-pickers | Date range picker component     |
+
+---
+
+## ▶️ Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Environment Variables
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+VITE_API_BASE_URL=http://localhost:3001/api
 ```
+
+---
+
+---
+
+### 3. Run the app in development
+
+```bash
+npm run dev
+```
+
+---
+
+### 3. Then open the app in your browser
+
+```bash
+http://localhost:5173
+```
+
+## 💡 Inspired By
+
+This frontend mimics functionality from industry-standard log management tools:
+
+- [Grafana Loki](https://grafana.com/oss/loki/)  
+  Open-source log aggregation system built for efficiency and performance.
+
+- [Datadog Logs](https://www.datadoghq.com/product/log-management/)  
+  A cloud-based monitoring and analytics platform with powerful log filtering and visualization.
+
+- [Splunk Log Observer](https://www.splunk.com/)  
+  Enterprise-grade log analytics with real-time observability and rich dashboards.
+
+> These tools inspired the clean UX, filtering interface, and visual distinction of log severity levels.

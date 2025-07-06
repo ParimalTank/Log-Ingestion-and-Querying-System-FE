@@ -9,15 +9,17 @@ import {
 interface LevelSelectProps {
     value: string;
     onChange: (value: string) => void;
+    required?: boolean;
 }
 
-export const LevelSelect = ({ value, onChange }: LevelSelectProps) => (
+export const LevelSelect = ({ value, onChange, required }: LevelSelectProps) => (
     <FormControl fullWidth>
         <InputLabel>Level</InputLabel>
         <Select
             value={value}
             label="Level"
             onChange={(e: SelectChangeEvent) => onChange(e.target.value)}
+            required={required ? true : false}
         >
             <MenuItem value="">All Levels</MenuItem>
             <MenuItem value="error">❌ Error</MenuItem>
